@@ -1,19 +1,33 @@
 {
-  "User": {
+  "todo": {
     "time_stamp":{
-      "date":{}
-    },
+      "dateTime": {
+        "min": "2010-01-01T00:00:00Z",
+        "max": "2020-12-31T23:59:59Z"
+      }    },
     "title": {
-      "string": {}
+      "loremParagraphs": {
+        "minLength": 10,
+        "maxLength": 50
+      }
+    },
+    "desc": {
+      "loremParagraphs": {
+        "minLength": 10,
+        "maxLength": 100
+      }
     },
     "due_date":{
-      "date":{}
+      "dateTime": {
+        "min": "2010-01-01T00:00:00Z",
+        "max": "2020-12-31T23:59:59Z"
+      }
     },
     "tag": {
       "string":{}
     },
     "status": {
-      "regexp":["OPEN","WORKING","DONE","OVERDUE"]
+      "string":["OPEN","WORKING","DONE","OVERDUE"]
     } 
   }
 }
