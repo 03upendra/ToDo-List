@@ -24,7 +24,7 @@
       }
     },
     "tag": {
-      "string":{}
+      "string": ["one", "two", "three"]
     },
     "status": {
       "string":["OPEN","WORKING","DONE","OVERDUE"]
