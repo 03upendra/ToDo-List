@@ -12,9 +12,13 @@ export const tableSlice = createSlice({
       state.tableData=action.payload;
     },
 
+    addTodo:(state,action)=>{
+      state.tableData.push(action.payload);
+    }
+    
   },
 });
 
-export const{setData}=tableSlice.actions;
+export const{setData, addTodo}=tableSlice.actions;
 
 export default tableSlice.reducer;
