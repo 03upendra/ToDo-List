@@ -27,12 +27,8 @@
       }
     },
     "tag": {
-      "hasMany": {
-        "_": {
-          "items": 4
-        },
-        "string":["Education", "Tools", "Travel","Sports","Health","Tech"]
-      }
+      "hasMany":{
+        "string":["Education", "Tools", "Travel","Sports","Health","Tech"]}
     },
     "status": {
       "string":["OPEN","WORKING","DONE","OVERDUE"]
