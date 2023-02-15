@@ -27,8 +27,7 @@
       }
     },
     "tag": {
-      "hasMany":{
-        "string":["Education", "Tools", "Travel","Sports","Health","Tech"]}
+      "hasMany":"string"
     },
     "status": {
       "string":["OPEN","WORKING","DONE","OVERDUE"]
