@@ -12,7 +12,7 @@ function Navbar() {
 
                 <NavLink to='/'>
                     {({isActive})=>(
-                       <span className={`text-blue-200 ${isActive?'border-b':''} mr-4 md:mr-10 hover:cursor-pointer hover:text-white`}>
+                       <span className={`text-blue-300 ${isActive?'border-b':''} mr-4 md:mr-10 hover:cursor-pointer hover:text-white`}>
                        Home
                        </span>
                     )}
@@ -20,7 +20,7 @@ function Navbar() {
             
                 <NavLink to='/addTodo'>
                     {({isActive})=>(
-                       <span className={`text-blue-200 ${isActive?'border-b':''} mr-6 hover:cursor-pointer hover:text-white`}>
+                       <span className={`text-blue-300 ${isActive?'border-b':''} mr-6 hover:cursor-pointer hover:text-white`}>
                        Add Item
                        </span>
                     )}
@@ -31,8 +31,8 @@ function Navbar() {
 
         <div className="w-1/5">
          
-            <h1 className="p-1 ml-auto w-fit text-white text-xl font-bold">
-              Exit
+            <h1 className="p-1 ml-auto w-fit text-white text font-bold">
+               Upendra.B
             </h1>
         
         </div>

@@ -4,6 +4,7 @@ import { addTodo } from '../redux/tableSlice';
 import { useForm } from "react-hook-form";
 import { yupResolver } from '@hookform/resolvers/yup';
 import * as yup from "yup";
+import axios from 'axios';
 
 
 function AddToDo() {
@@ -14,7 +15,7 @@ function AddToDo() {
         time_stamp: yup.date().default(() =>new Date()),
         title: yup.string().required().max(100),
         desc: yup.string().required().max(100),
-        due_date: yup.date(),
+        due_date:yup.date()
       }).required();
 
     const[todo,setTodo]=useState({time_stamp:'',title:'',desc:'',due_date:'',tag:'',status:['OPEN','WORKING','DONE','OVERDUE']});
@@ -24,25 +25,34 @@ function AddToDo() {
    
     const onSubmit=data=> handelAdd(data);
 
-    
-    const handelAdd=(data)=>{
+    //===============================================(Updating Global State )
+    const handelAdd= async (data)=>{
 
         let filteredTags = data.tag.replace(/[\s,]+/g, ' ').trim().split(' ');
         filteredTags=[...new Set(filteredTags)];
-
-        let date=data.due_date.toISOString();
-        let createdDate=data.due_date.toISOString();
-        let newData={...data,tag:filteredTags,due_date:date,time_stamp:createdDate}
-
+        let tdate=new Date(data.due_date)
+        let date =tdate.toISOString();
+        console.log(date);
+        let createdDate=data.time_stamp.toISOString();
+        let tid= Math.floor((Math.random() * 1000) + 1);
+        let newData={...data,tag:filteredTags,due_date:date.substring(0,10),time_stamp:createdDate.substring(0,10),id:tid}
         // console.log(newData);
         dispatch(addTodo(newData));
-
-
+        
         setTodo({...todo,time_stamp:'',title:'',desc:'',due_date:'',tag:'',status:['OPEN','WORKING','DONE','OVERDUE']});
         reset(todo);
 
-        //code to add new todo to DB...backend
-        // console.log(todo);
+        //=====(Code to add new todo to DB...backend)
+        try {
+            let res = await axios.post(
+              "https://mockend.com/03upendra/ToDo-List/Post",newData
+            );
+            console.log(res);
+        }
+        catch(err){ 
+            console.log(err)
+            //======(Code for error handling)
+        }
     }
 
   return (
